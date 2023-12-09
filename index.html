@@ -8,14 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-
-
     <title>Word Guess</title>
-
 </head>
 
 <body>
     <h1 id="title">WORD GUESS</h1>
+    <div id="time_remaining_container">Time Remain: <span id="time_remaining"></span></div>
     <img style="width: 14%;height: 14%;margin-left: 45%;" src="./assets/images/Logo-01.png">
     <div id="welcome">
         <label style="color:#5b5daa;" id="clue"></label>
@@ -24,14 +22,11 @@
     <div id="game_board_container"><span id="game_board"></span></div>
 
     <div id="guessed_container">
-        <input placeholder="...text" id="input" class="custom-input"></input>
-    <span id="guessed">
-        
-    </span>
+        <input placeholder="Type here" id="input" class="custom-input"></input>
+        <span id="guessed"></span>
     </div>
     <div id="win_loss_container">Wins: <span id="wins"></span> &nbsp&nbsp&nbsp Losses: <span id="losses"></span></div>
-    <div id="guesses_remaining_container"><span id="guesses_remaining"></span> </div>
-    <div id="guesses_remaining_container">Time Left: <span id="time_remaining"></span></div>
+    <div id="guesses_remaining_container">Remaining chances : <span id="guesses_remaining"></span> </div>
 
     <!-- Display result after 4 minutes -->
     <div id="result_container" style="display:none; text-align: center;">
@@ -42,45 +37,6 @@
     <script src="assets/javascript/game.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-        <script>
-            // Set timer for 4 minutes (240000 milliseconds)
-            const timerDuration = 20000;
-            let timeLeft = timerDuration;
-    
-            // Display initial time
-            updateTimerDisplay();
-    
-            // Update the timer every second
-            const timerInterval = setInterval(function () {
-                timeLeft -= 1000;
-                updateTimerDisplay();
-    
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    displayResult();
-                }
-            }, 1000);
-    
-            function updateTimerDisplay() {
-                const minutes = Math.floor(timeLeft / 60000);
-                const seconds = Math.floor((timeLeft % 60000) / 1000);
-                document.getElementById('time_remaining').textContent = `${minutes}:${seconds}`;
-            }
-    
-            function displayResult() {
-                console.log("running");
-                // Hide game elements
-                document.getElementById('game_board_container').style.display = 'none';
-                document.getElementById('guessed_container').style.display = 'none';
-                document.getElementById('win_loss_container').style.display = 'none';
-                document.getElementById('guesses_remaining_container').style.display = 'none';
-    
-                // Display result message
-                const wins = document.getElementById('wins').textContent;
-                document.getElementById('your_score').textContent = `Your score is ${wins}`;
-                document.getElementById('result_container').style.display = 'block';
-            }
-        </script>
 
 </body>
 

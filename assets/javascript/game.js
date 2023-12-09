@@ -6,8 +6,11 @@ var guessedLetters = [];
 var wins = 0;
 var losses = 0;
 const clueLabel=document.getElementById("clue");
+const timerDuration = 2000;
+let timeLeft = timerDuration;
 function onStart() {
     updateDisplay();
+    updateTimerDisplay();
     clueLabel.innerText=clue[currentWordIndex];
     console.log(clueLabel,clue[currentWordIndex]);
     const inputElement=document.getElementById("input");
@@ -108,5 +111,36 @@ function currentWordLetters() {
 function getGuessesAllowed() {
     return (10);
 }
+const timerInterval = setInterval(function () {
+    timeLeft -= 1000;
+    updateTimerDisplay();
+
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        displayResult();
+    }
+}, 1000);
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60000);
+    const seconds = Math.floor((timeLeft % 60000) / 1000);
+    document.getElementById('time_remaining').textContent = `${minutes}:${seconds}`;
+}
+
+function displayResult() {
+    console.log("running");
+    // Hide game elements
+    document.getElementById('game_board_container').style.display = 'none';
+    document.getElementById('guessed_container').style.display = 'none';
+    document.getElementById('win_loss_container').style.display = 'none';
+    document.getElementById('guesses_remaining_container').style.display = 'none';
+    document.getElementById('clue').style.display = 'none';
+
+    // // Display result message
+    const wins = document.getElementById('wins').textContent;
+    document.getElementById('your_score').textContent = `Your score is ${wins}`;
+    document.getElementById('result_container').style.display = 'block';
+}
+
 
 onStart();
