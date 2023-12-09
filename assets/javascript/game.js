@@ -6,7 +6,7 @@ var guessedLetters = [];
 var wins = 0;
 var losses = 0;
 const clueLabel=document.getElementById("clue");
-const timerDuration = 2000;
+const timerDuration = 20000;
 let timeLeft = timerDuration;
 function onStart() {
     updateDisplay();
