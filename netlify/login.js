@@ -7,8 +7,9 @@ const dataPath = path.resolve(__dirname, './data.json');
 
 exports.handler = async function (event, context) {
   const { username } = JSON.parse(event.body);
-
+  console.log(username)
   try {
+    console.log(dataPath);
     // Read the data from the data.json file
     if (fs.existsSync(dataPath)) {
       const rawData = fs.readFileSync(dataPath);
