@@ -11,8 +11,7 @@ exports.handler = async function (event, context) {
   try {
     console.log(dataPath);
     // Read the data from the data.json file
-    if (fs.existsSync(dataPath)) {
-      const rawData = fs.readFileSync(dataPath);
+      const rawData = fs.readFileSync("data.json");
       const jsonData = JSON.parse(rawData);
 
       // Check for duplicate names in the JSON data
@@ -22,13 +21,6 @@ exports.handler = async function (event, context) {
         statusCode: 200,
         body: JSON.stringify({ isDuplicate }),
       };
-    } else {
-      // Handle case where data file is missing
-      return {
-        statusCode: 404,
-        body: JSON.stringify({ error: 'Data file not found' }),
-      };
-    }
   } catch (error) {
     console.error('Error reading data:', error);
     return {
