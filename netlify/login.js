@@ -28,7 +28,7 @@ exports.handler = async function (event, context) {
       console.error('Error listing files:', error);
     }
     // Read the data from the data.json file
-      const rawData = fs.readFileSync("./data.json");
+      const rawData = fs.readFileSync("/app/netlify/data/data.json");
       const jsonData = JSON.parse(rawData);
 
       // Check for duplicate names in the JSON data
