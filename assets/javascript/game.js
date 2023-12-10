@@ -126,9 +126,7 @@ function updateTimerDisplay() {
     const seconds = Math.floor((timeLeft % 60000) / 1000);
     document.getElementById('time_remaining').textContent = `${minutes}:${seconds}`;
 }
-
 function displayResult() {
-    console.log("running");
     // Hide game elements
     document.getElementById('game_board_container').style.display = 'none';
     document.getElementById('guessed_container').style.display = 'none';
@@ -136,11 +134,23 @@ function displayResult() {
     document.getElementById('guesses_remaining_container').style.display = 'none';
     document.getElementById('clue').style.display = 'none';
 
-    // // Display result message
+    // Display result message
     const wins = document.getElementById('wins').textContent;
     document.getElementById('your_score').textContent = `Your score is ${wins}`;
     document.getElementById('result_container').style.display = 'block';
 }
 
+// Function to send name and score to serverless function
+function saveToServerlessFunction(name, score) {
+    fetch('/.netlify/functions/saveScore', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, score }),
+    })
+        .then(response => response.json())
+        .then(data => console.log('Score saved:', data))
+        .catch(error => console.error('Error saving score:', error));
+}
 
-onStart();
