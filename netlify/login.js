@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataPath = path.resolve(__dirname, './data.json');
+const dataPath = path.resolve(__dirname, 'data.json');
 
 exports.handler = async function (event, context) {
   const { username } = JSON.parse(event.body);
