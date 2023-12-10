@@ -1,12 +1,12 @@
-var words = ["MANOJKUMAR","JIM","DWIGHT","ANGELA","RYAN","CREED","KELLY",];
-var clue =["1","2","3","myname","myname","myname","myname"];
+var words = ["MALWARE","PHISING","PASSWORD","DDOS","BRUTEFORCE","TROJAN","RCE","DNS","COOKIE","REDOS","BREACH"];
+var clue =["What type of malicious software is designed to harm your computer?","What's the term for tricking people into sharing sensitive info through fake emails or websites?","What do you call a set of characters that grants access to a computer system or account?","A type of cyber attack where a system is flooded with traffic to make it unavailable ?","A technique where attackers attempt to guess passwords by systematically trying all possible combinations ?","A type of malware that disguises itself as legitimate software but actually performs malicious actions ?","This type of attack involves injecting malicious code into a website ?","In this cyber threat scenario, attackers gain control and execute commands on a targeted system remotely?","A type of malicious software that encrypts your files and demands payment for their release.","This system translates human-readable domain names into numerical IP addresses.","Tiny data bits stored in your browser for tracking online activity and remembering you on websites, posing potential privacy risks","This type of attack exploits inefficient regular expressions, causing a system to become unresponsive.","An unauthorized access or intrusion that results in the compromise of sensitive data."];
 var currentWordIndex = 0;
 var attempts = 0;
 var guessedLetters = [];
 var wins = 0;
 var losses = 0;
 const clueLabel=document.getElementById("clue");
-const timerDuration = 20000;
+const timerDuration = 30000;
 let timeLeft = timerDuration;
 function onStart() {
     updateDisplay();
