@@ -12,28 +12,10 @@
 </head>
 
 <body>
-    <div id="login_container" style="text-align: center;">
-        <h2>Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter your username">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter your password">
-        <br>
-        <button onclick="validatePassword()">Login</button>
-    </div>
 
-    <div id="admin_dashboard" style="display: none;">
-        <!-- Admin dashboard content goes here -->
-        <h1>Welcome to the Admin Dashboard</h1>
-        <!-- Add admin dashboard content as needed -->
-    </div>
-
-    <div id="user_game" style="display: none;">
-
-
+    <div id="user_game">
         <h1 id="title">WORD GUESS</h1>
-        <div id="time_remaining_container">Time Remain: <span id="time_remaining"></span></div>
+        <div id="time_remaining_container"><span>00</span>:<span>00</span></div>
         <img style="width: 14%;height: 14%;margin-left: 45%;" src="./assets/images/Logo-01.png">
         <div id="welcome">
             <label style="color:#5b5daa;" id="clue"></label>
@@ -49,40 +31,32 @@
                 id="losses"></span></div>
         <div id="guesses_remaining_container">Remaining chances : <span id="guesses_remaining"></span> </div>
 
-        <!-- Display result after 4 minutes -->
-        <div id="result_container" style="display:none; text-align: center;">
-            <h3 id="your_score">Your Score</h3>
-            <h4 id="score_value"></h4>
-        </div>
     </div>
 
+    <!-- Congratulations area starts -->
+    <div id="congrats-preview" style="opacity: 0;" class="congratulation-area text-center mt-5">
+        <div class="container">
+            <div class="congratulation-wrapper">
+                <div class="congratulation-contents center-text">
+                    <div class="congratulation-contents-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h4 class="congratulation-contents-title"> Congratulations! </h4>
+                    <p class="congratulation-contents-para" id="score-details"> Your account is ready to submit proposals and get work. </p>
+                    <div class="btn-wrapper mt-4">
+                        <a href="./index.html" class="cmn-btn btn-bg-1"> Go to Home </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link href="./assets/css/congrats.css" rel="stylesheet">
+<!-- Congratulations area end -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQqLnfeuoroiQlHZja9wTiNfdV4zlEyjwAAM=" crossorigin="anonymous"></script>
-    <script src="assets/javascript/game.js"></script>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-
-        if (urlParams.get('admin') === 'true') {
-            document.getElementById('login_container').style.display = 'block';
-            document.getElementById('user_game').style.display = 'none';
-            document.getElementById('admin_dashboard').style.display = 'none';
-        } else {
-            document.getElementById('login_container').style.display = 'none';
-            document.getElementById('user_game').style.display = 'block';
-            document.getElementById('admin_dashboard').style.display = 'none';
-
-            const modal = document.getElementById('name_modal');
-            const usernameInput = document.getElementById('user_name');
-
-            function startUserGame() {
-                modal.style.display = 'none';
-                onStart();
-            }
-
-            // Display modal on page load
-            modal.style.display = 'block';
-        }
-    </script>
+    <script src="./assets/javascript/gamepage.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 
 </html>
