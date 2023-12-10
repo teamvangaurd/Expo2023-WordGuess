@@ -11,7 +11,7 @@ exports.handler = async function (event, context) {
   try {
     console.log(dataPath);
     // Read the data from the data.json file
-      const rawData = fs.readFileSync("data.json");
+      const rawData = fs.readFileSync("./data.json");
       const jsonData = JSON.parse(rawData);
 
       // Check for duplicate names in the JSON data
