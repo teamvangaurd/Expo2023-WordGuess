@@ -1,2 +1,3 @@
 [build]
 functions = "netlify"
+included_files = ["netlify/data/data.json"]
