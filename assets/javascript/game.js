@@ -5,21 +5,19 @@ var attempts = 0;
 var guessedLetters = [];
 var wins = 0;
 var losses = 0;
-const clueLabel=document.getElementById("clue");
-const timerDuration = 30000;
+const clueLabel = document.getElementById("clue");
+const timerDuration = 2000;
 let timeLeft = timerDuration;
+
 function onStart() {
     updateDisplay();
     updateTimerDisplay();
-    clueLabel.innerText=clue[currentWordIndex];
-    console.log(clueLabel,clue[currentWordIndex]);
-    const inputElement=document.getElementById("input");
+    clueLabel.innerText = clue[currentWordIndex];
+    const inputElement = document.getElementById("input");
     inputElement.addEventListener("input", onGuess);
 }
 
 function onGuess(event) {
-    console.log("entered");
-    console.log(event.target.value);
     var keyPressed = event.target.value.toUpperCase();
     if (isLetterOnly(keyPressed)) {
         if (guessedLetters.indexOf(keyPressed) === -1) {
@@ -38,23 +36,22 @@ function onGuess(event) {
 
         }
     }
-    event.target.value="";
+    event.target.value = "";
 }
+
 function getGameboardWord() {
     return (currentWordLetters().map(function (letter) {
-        console.log(letter);
         if (guessedLetters.indexOf(letter) === -1) {
             return "&nbsp";
         } else {
             return letter;
         }
-    }
-    ));
+    }));
 }
 
 function goToNextWord() {
     currentWordIndex++;
-    clueLabel.innerText=clue[currentWordIndex];
+    clueLabel.innerText = clue[currentWordIndex];
     attempts = 0;
     guessedLetters = [];
     updateDisplay();
@@ -76,7 +73,6 @@ function isLetterOnly(character) {
     return checker;
 }
 
-
 function updateDisplay() {
     document.getElementById("guessed").innerHTML = guessedLetters.reduce(function (list, letter) {
         return (list + letter + " ");
@@ -92,7 +88,6 @@ function showGameBoard() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    console.log(getGameboardWord());
     getGameboardWord().forEach(function (letter) {
         var newDiv = document.createElement("div");
         newDiv.setAttribute("class", "game_board_letter");
@@ -111,6 +106,7 @@ function currentWordLetters() {
 function getGuessesAllowed() {
     return (10);
 }
+
 const timerInterval = setInterval(function () {
     timeLeft -= 1000;
     updateTimerDisplay();
@@ -126,6 +122,7 @@ function updateTimerDisplay() {
     const seconds = Math.floor((timeLeft % 60000) / 1000);
     document.getElementById('time_remaining').textContent = `${minutes}:${seconds}`;
 }
+
 function displayResult() {
     // Hide game elements
     document.getElementById('game_board_container').style.display = 'none';
@@ -137,6 +134,55 @@ function displayResult() {
     // Display result message
     const wins = document.getElementById('wins').textContent;
     document.getElementById('your_score').textContent = `Your score is ${wins}`;
+    document.getElementById('result_container').style.display = 'block';
+}
+
+function login() {
+    // Check if the entered credentials are for the admin
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Check if the URL contains "admin=true"
+    if (urlParams.get('admin') === 'true') {
+        // Display the admin dashboard
+        document.getElementById('login_container').style.display = 'block';
+    } else {
+        // Display the user game
+        document.getElementById('login_container').style.display = 'none';
+        document.getElementById('user_game').style.display = 'block';
+
+        // Start the game for the user
+        onStart();
+    }
+}
+
+function validatePassword() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    if (username === 'admin' && password === 'admin') {
+        document.getElementById('login_container').style.display = 'none';
+        document.getElementById('admin_dashboard').style.display = 'block';
+    }
+}
+
+// ... (your existing code)
+
+function displayResult() {
+    // Prompt user for name
+    const playerName = prompt('Enter your name:');
+    const playerScore = document.getElementById('wins').textContent;
+
+    // Send name and score to serverless function
+    saveToServerlessFunction(playerName, playerScore);
+
+    // Hide game elements
+    document.getElementById('game_board_container').style.display = 'none';
+    document.getElementById('guessed_container').style.display = 'none';
+    document.getElementById('win_loss_container').style.display = 'none';
+    document.getElementById('guesses_remaining_container').style.display = 'none';
+    document.getElementById('clue').style.display = 'none';
+
+    // Display result message
+    document.getElementById('your_score').textContent = `Your score is ${playerScore}`;
     document.getElementById('result_container').style.display = 'block';
 }
 
@@ -154,3 +200,4 @@ function saveToServerlessFunction(name, score) {
         .catch(error => console.error('Error saving score:', error));
 }
 
+login();
