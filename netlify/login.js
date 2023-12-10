@@ -10,6 +10,16 @@ exports.handler = async function (event, context) {
   console.log(username)
   try {
     console.log(dataPath);
+    const currentDirectory = process.cwd();
+    console.log('Current Directory:', currentDirectory);
+  
+    // List files in the current directory
+    try {
+      const files = fs.readdirSync(currentDirectory);
+      console.log('Files in Current Directory:', files);
+    } catch (error) {
+      console.error('Error listing files:', error);
+    }
     // Read the data from the data.json file
       const rawData = fs.readFileSync("./data.json");
       const jsonData = JSON.parse(rawData);
