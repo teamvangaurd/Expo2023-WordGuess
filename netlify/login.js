@@ -10,8 +10,14 @@ exports.handler = async function (event, context) {
   console.log(username)
   try {
     console.log(dataPath);
+    const path = require('path');
+
     const currentDirectory = process.cwd();
+    const parentDirectory = path.join(currentDirectory, '..');
+    
     console.log('Current Directory:', currentDirectory);
+    console.log('Parent Directory:', parentDirectory);
+    
   
     // List files in the current directory
     try {

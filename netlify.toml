@@ -1,2 +1,2 @@
 [build]
-  functions = "serverless-functions"
+functions = "netlify"
