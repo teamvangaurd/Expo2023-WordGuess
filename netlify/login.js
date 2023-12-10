@@ -22,7 +22,8 @@ exports.handler = async function (event, context) {
     // List files in the current directory
     try {
       const files = fs.readdirSync(currentDirectory);
-      console.log('Files in Current Directory:', files);
+      const files2 = fs.readdirSync(parentDirectory);
+      console.log('Files in Current Directory:', files,files2);
     } catch (error) {
       console.error('Error listing files:', error);
     }
