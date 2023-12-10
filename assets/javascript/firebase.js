@@ -1,5 +1,5 @@
 function submitForm() {
-    console.log("entered");
+    console.log("entered test");
 }
 
 
