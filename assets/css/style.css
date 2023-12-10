@@ -159,3 +159,40 @@ body {
     }
 }
 
+/* Add your existing CSS styles here */
+
+.custom-input {
+    width: 37%;
+    padding: 8px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 2px solid #5b5daa;
+    margin: 0 8px;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    #game_board_container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .game_board_letter,
+    .no_border {
+        width: 50px;
+        height: 50px;
+        font-size: 48px;
+        margin: 8px;
+        margin-right: 4px;
+    }
+
+    #guessed_container {
+        margin-bottom: 8px;
+    }
+
+    #guessed {
+        padding: 8px;
+    }
+}
