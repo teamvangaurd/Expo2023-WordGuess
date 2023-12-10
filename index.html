@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,103 +14,86 @@
     
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-    
-  </head>
-  <body>
+</head>
+<body>
 
     <div id="particles-js"></div>
 
-  <div class="navbar-dark text-white">
-    <div class="container">
-      <nav class="navbar px-0 navbar-expand-lg navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a href="index.html" class="pl-md-0 p-3 text-light">Home</a>
-            <a href="login.html" class="p-3 text-decoration-none text-light active">Login</a>
-            <a href="registration.html" class="p-3 text-decoration-none text-light">Register</a>
-          </div>
+    <div class="navbar-dark text-white">
+        <div class="container">
+            <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a href="index.html" class="pl-md-0 p-3 text-light">Home</a>
+                        <a href="login.html" class="p-3 text-decoration-none text-light active">Login</a>
+                        <a href="registration.html" class="p-3 text-decoration-none text-light">Register</a>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </nav>
     </div>
-  </div>
 
-  <div class="container py-5 mb-5">
-    <h1 class="mb-5" style="text-align: center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
-    <div class="row py-4">
-      <div class="col-md-8 order-md-2">
-        <h4 class="mb-3">Enter your credentials</h4>
-        <form id="loginForm" class="needs-validation" novalidate>
-          <div class="mb-3">
-            <label for="username">Username</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
-              </div>
-              <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
-              </div>
+    <div class="container py-5 mb-5">
+        <h1 class="mb-5" style="text-align: center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
+        <div class="row py-4">
+            <div class="col-md-8 order-md-2">
+                <h4 class="mb-3">Enter your credentials</h4>
+                <form id="loginForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="username">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control" id="username" placeholder="Username" required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Your username is required.
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <hr class="mb-4">
+                    <button id="submit" class="btn btn-outline-success btn-shadow btn-lg btn-block" type="button" onclick="submitForm()"> Lets Hack! </button>
+                </form>
             </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="password">Password <span class="text-muted"></span></label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">#</span>
-              </div>
-              <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)">
-              <div class="invalid-feedback">
-                Please enter a valid password.
-              </div>
-            </div>
-          </div>
-          <hr class="mb-4">
-          <hr class="mb-4">
-          <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="button" onclick="submitForm()"> Lets Hack! </button>
-        </form>
-      </div>
-      <div class="col-md-2 order-md-1"></div>
-      <div class="col-md-2 order-md-3"></div>
+            <div class="col-md-2 order-md-1"></div>
+            <div class="col-md-2 order-md-3"></div>
+        </div>
     </div>
-  </div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script  src="./assets//javascript/firebase.js"></script>
+    <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+            import { getAnalytics } from "firebase/analytics";
+            import {getDatabase} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+            const firebaseConfig = {
+                apiKey: "AIzaSyDdse8JC_d3f88ZmYfkhoAJCdNTL66Nwkg",
+                authDomain: "yugi-expo.firebaseapp.com",
+                databaseURL: "https://yugi-expo-default-rtdb.firebaseio.com",
+                projectId: "yugi-expo",
+                storageBucket: "yugi-expo.appspot.com",
+                messagingSenderId: "487737709817",
+                appId: "1:487737709817:web:e6ed17d8d62d1757be3e28",
+                measurementId: "G-VZ7XC6SZVB"
+            };
 
-  <script>
-    function submitForm() {
-      var username = document.getElementById('username').value;
-      console.log("username");
-      // Make an AJAX request to the server to check the username
-      fetch('/.netlify/functions/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username }),
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.isValid) {
-          // Username is valid, navigate to next.html
-          window.location.href = 'next.html';
-        } else {
-          // Show error message
-          alert('Enter a unique username');
+            const app = initializeApp(firebaseConfig);
+
+        const db=getDatabase();
+        const submit=document.getElementById("submit");
+        function submitAction(){
+            console.log("yes");
         }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        // Handle error, show appropriate message to the user
-      });
-    }
-  </script>
-  </body>
+        submit.addEventListener("click",
+        )
+    </script>
+</body>
 </html>

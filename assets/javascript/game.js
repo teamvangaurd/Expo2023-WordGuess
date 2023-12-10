@@ -200,4 +200,6 @@ function saveToServerlessFunction(name, score) {
         .catch(error => console.error('Error saving score:', error));
 }
 
+
+
 login();
